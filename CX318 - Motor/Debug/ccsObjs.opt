@@ -1,1 +1,1 @@
-"./motor_main.obj" "../lnk_msp430g2553.cmd" -llibc.a 
+"./motor_main.obj" "./motor_main_jack.obj" "../lnk_msp430g2553.cmd" -llibc.a 

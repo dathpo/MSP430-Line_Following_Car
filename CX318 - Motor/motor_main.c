@@ -5,11 +5,11 @@
 // Connect the servo SIGNAL wire to P1.2 through a 1K resistor.
 
 #define MCU_CLOCK           1000000
-#define PWM_FREQUENCY       46      // In Hertz, ideally 50Hz.
+#define PWM_FREQUENCY       50    // In Hertz, ideally 50Hz.
 
-#define SERVO_STEPS         180     // Maximum amount of steps in degrees (180 is common)
-#define SERVO_MIN           650     // The minimum duty cycle for this servo
-#define SERVO_MAX           2700*8    // The maximum duty cycle
+#define MOTOR_STEPS         180     // Maximum amount of steps in degrees (180 is common)
+#define MOTOR_MIN           0     // The minimum duty cycle for this servo
+#define MOTOR_MAX           2700*8    // The maximum duty cycle
 
 
 
@@ -18,18 +18,18 @@ unsigned int PWM_Duty       = 0;                            // %
 
 void main (void){
 
-    unsigned int servo_stepval, servo_stepnow;
-    unsigned int servo_lut[ SERVO_STEPS+1 ];
+    unsigned int motor_stepval, motor_stepnow;
+    unsigned int motor_lut[ MOTOR_STEPS+1 ];
     unsigned int i;
 
     // Calculate the step value and define the current step, defaults to minimum.
-    servo_stepval   = ( (SERVO_MAX - SERVO_MIN) / SERVO_STEPS );
-    servo_stepnow   = SERVO_MIN;
+    motor_stepval   = ( (MOTOR_MAX - MOTOR_MIN) / MOTOR_STEPS );
+    motor_stepnow   = MOTOR_MIN;
 
     // Fill up the LUT
-    for (i = 0; i < SERVO_STEPS; i++) {
-        servo_stepnow += servo_stepval;
-        servo_lut[i] = servo_stepnow;
+    for (i = 0; i < MOTOR_STEPS; i++) {
+        motor_stepnow += motor_stepval;
+        motor_lut[i] = motor_stepnow;
     }
 
     // Setup the PWM, etc.
@@ -76,13 +76,13 @@ void main (void){
 //        __delay_cycles(4000);
 
 //         Move forward toward the maximum step value
-                for (i = 0; i < SERVO_STEPS; i++) {
-                    TACCR1 = servo_lut[i];
+                for (i = 0; i < MOTOR_STEPS; i++) {
+                    TACCR1 = motor_lut[i];
                     __delay_cycles(100000);
                 }
         // Move backward toward the minimum step value
-                for (i = SERVO_STEPS; i > 0; i--) {
-                    TACCR1 = servo_lut[i];
+                for (i = MOTOR_STEPS; i > 0; i--) {
+                    TACCR1 = motor_lut[i];
                     __delay_cycles(100000);
                 }
         }

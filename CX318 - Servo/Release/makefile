@@ -4,14 +4,14 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/Users/Jack/workspace/ccs/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS
+CG_TOOL_ROOT := C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./main.obj" \
-"../lnk_msp430g2553.cmd" \
+"./servo_main.obj" \
+"../lnk_msp430g2452.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
 
@@ -120,41 +120,41 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-Servo.out \
+CX318\ -\ Servo.out \
 
 EXE_OUTPUTS__QUOTED += \
-"Servo.out" \
+"CX318 - Servo.out" \
 
 BIN_OUTPUTS += \
-Servo.hex \
+CX318\ -\ Servo.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"Servo.hex" \
+"CX318 - Servo.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "Servo.out"
+	@$(MAKE) --no-print-directory -Onone "CX318 - Servo.out"
 
 # Tool invocations
-Servo.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+CX318\ -\ Servo.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/Users/Jack/workspace/ccs/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmsp -O2 --use_hw_mpy=none --advice:power=all --define=__MSP430G2553__ --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"Servo.map" --heap_size=80 --stack_size=80 -i"C:/Users/Jack/workspace/ccs/ccsv7/ccs_base/msp430/include" -i"C:/Users/Jack/workspace/ccs/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/lib" -i"C:/Users/Jack/workspace/ccs/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Servo_linkInfo.xml" --use_hw_mpy=none --rom_model -o "Servo.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/cl430" -vmsp -O2 --use_hw_mpy=none --advice:power=all --define=__MSP430G2452__ --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"CX318 - Servo.map" --heap_size=80 --stack_size=80 -i"C:/ti/ccsv7/ccs_base/msp430/include" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/lib" -i"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="CX318 - Servo_linkInfo.xml" --use_hw_mpy=none --rom_model -o "CX318 - Servo.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-Servo.hex: $(EXE_OUTPUTS)
+CX318\ -\ Servo.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/Users/Jack/workspace/ccs/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "Servo.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-msp430_16.9.1.LTS/bin/hex430" --memwidth=8 --romwidth=8 -o "CX318 - Servo.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" 
-	-$(RM) "main.d" 
+	-$(RM) "servo_main.obj" 
+	-$(RM) "servo_main.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

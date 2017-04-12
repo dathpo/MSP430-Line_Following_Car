@@ -11,6 +11,7 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./motor_main.obj" \
+"./motor_main_jack.obj" \
 "../lnk_msp430g2553.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -153,8 +154,8 @@ CX318\ -\ Motor.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "motor_main.obj" 
-	-$(RM) "motor_main.d" 
+	-$(RM) "motor_main.obj" "motor_main_jack.obj" 
+	-$(RM) "motor_main.d" "motor_main_jack.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
