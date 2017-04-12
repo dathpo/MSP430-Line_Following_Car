@@ -1,6 +1,7 @@
 *.idea
 *.class
 *.iml
+*.cmd
 /nbproject/private/
 .metadata
 .gradle
@@ -19,8 +20,6 @@ targetConfigs/
 .ccsproject
 .cproject
 .project
-lnk_msp430g2452
-lnk_msp430g2553
 tmp/
 *.tmp
 *.bak
