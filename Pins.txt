@@ -1,0 +1,6 @@
+P1_2: Far Right Sensor
+P2_2: Right Sensor
+P2_5: Left Sensor
+P1_6: Far Left Sensor
+P2_4: Servo
+P2_1: MOSFET

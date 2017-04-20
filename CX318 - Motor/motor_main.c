@@ -11,8 +11,6 @@
 #define MOTOR_MIN           0     // The minimum duty cycle for this servo
 #define MOTOR_MAX           2700*8    // The maximum duty cycle
 
-
-
 unsigned int PWM_Period     = (MCU_CLOCK / PWM_FREQUENCY);  // PWM Period
 unsigned int PWM_Duty       = 0;                            // %
 
@@ -41,7 +39,7 @@ void main (void){
     P1DIR   |= BIT2;               // P1.2 = output
     P1SEL   |= BIT2;               // P1.2 = TA1 output
                            // P2.2 Selection
-    P2DIR &=~BIT0;
+//    P2DIR &=~BIT0;
     // Main loop
     while (1){
 //        if((P2IN & 0x04) && (P2IN & 0x02)){
