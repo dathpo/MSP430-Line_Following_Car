@@ -39,40 +39,8 @@ void main (void){
     P1DIR   |= BIT2;               // P1.2 = output
     P1SEL   |= BIT2;               // P1.2 = TA1 output
                            // P2.2 Selection
-//    P2DIR &=~BIT0;
     // Main loop
     while (1){
-//        if((P2IN & 0x04) && (P2IN & 0x02)){
-//            TACCR1 = servo_lut[90];
-//        }
-//        else if(P2IN & 0x04){
-//            TACCR1 = servo_lut[0];
-//        }
-//        else if(P2IN & 0x02){
-//            TACCR1 = servo_lut[179];
-//        }
-//        else{
-//            TACCR1 = servo_lut[90];
-//        }
-//
-//        __delay_cycles(200000);
-//
-        // Go to 0°
-//        TACCR1 = servo_lut[0];
-//        __delay_cycles(2000);
-//
-////         Go to 45°
-//        TACCR1 = servo_lut[45];
-//        __delay_cycles(2000);
-
-////         Go to 90°
-//        TACCR1 = servo_lut[90];
-//        __delay_cycles(4000);
-//
-//        // Go to 180°
-//        TACCR1 = servo_lut[179];
-//        __delay_cycles(4000);
-
 //         Move forward toward the maximum step value
                 for (i = 0; i < MOTOR_STEPS; i++) {
                     TACCR1 = motor_lut[i];
@@ -84,6 +52,4 @@ void main (void){
                     __delay_cycles(100000);
                 }
         }
-
 }
-
