@@ -44,48 +44,15 @@ void main (void){
     P2DIR &=~BIT0;
     // Main loop
     while (1){
-//        if((P2IN & 0x04) && (P2IN & 0x02)){
-//            TACCR1 = servo_lut[90];
-//        }
-//        else if(P2IN & 0x04){
-//            TACCR1 = servo_lut[0];
-//        }
-//        else if(P2IN & 0x02){
-//            TACCR1 = servo_lut[179];
-//        }
-//        else{
-//            TACCR1 = servo_lut[90];
-//        }
-//
-//        __delay_cycles(200000);
-//
-        // Go to 0°
-//        TACCR1 = servo_lut[0];
-//        __delay_cycles(2000);
-//
-////         Go to 45°
-//        TACCR1 = servo_lut[45];
-//        __delay_cycles(2000);
-
-////         Go to 90°
-//        TACCR1 = servo_lut[90];
-//        __delay_cycles(4000);
-//
-//        // Go to 180°
-//        TACCR1 = servo_lut[179];
-//        __delay_cycles(4000);
-
 //         Move forward toward the maximum step value
-                for (i = 95; i < 126; i++) {
+                for (i = 45; i < 125; i++) {
                     TACCR1 = servo_lut[i];
-                    __delay_cycles(10000);
+                    __delay_cycles(20000);
                 }
         // Move backward toward the minimum step value
-                for (i = 125; i > 94; i--) {
+                for (i = 125; i > 44; i--) {
                     TACCR1 = servo_lut[i];
-                    __delay_cycles(10000);
+                    __delay_cycles(20000);
                 }
         }
-
 }
-
